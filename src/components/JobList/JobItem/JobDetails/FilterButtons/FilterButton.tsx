@@ -8,7 +8,7 @@ export default function FilterButton({ content }: FilterButtonProps) {
 
   return (
     <button className={filterButtonStyle} onClick={() => filterDispatch && filterDispatch({ type: "addFilter", filter: content })}>
-      <p>{content}</p>
+      {content}
     </button>
   );
 }
