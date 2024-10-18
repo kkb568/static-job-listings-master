@@ -1,10 +1,29 @@
+import { css, cx } from "@emotion/css";
 import { SpecialContentProps } from "../../../../../data/dataTypes";
-import { SpecialContentDiv } from "../../../../../styles/styles";
 
 export default function SpecialContent({ content, backgroundColor }: SpecialContentProps) {
+  const specialContentColor = css`
+    background-color: ${backgroundColor};
+  `;
+
   return (
-    <SpecialContentDiv $background={backgroundColor}>
+    <div className={cx(specialContent, specialContentColor)}>
       <p>{content}</p>
-    </SpecialContentDiv>
+    </div>
   );
 }
+
+const specialContent = css`
+  width: fit-content;
+  height: 1.6em;
+  padding: 0 0.7em;
+  border-radius: 1em;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-top: 1.2em;
+  }
+`;
