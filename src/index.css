@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "League Spartan Medium";
+  src: url("/fonts/LeagueSpartan-Medium.ttf");
+}
+
+@font-face {
+  font-family: "League Spartan Bold";
+  src: url("/fonts/LeagueSpartan-Bold.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: "League Spartan Medium";
+}
