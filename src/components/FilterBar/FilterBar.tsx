@@ -19,7 +19,7 @@ export default function FilterBar() {
 
   return (
     <span className={cx(filterBar, filterBarVisible)}>
-      <div className={filterListStyle}>{filterList}</div>
+      <span className={filterListStyle}>{filterList}</span>
       <button onClick={() => filterDispatch && filterDispatch({ type: "removeAllFilters", filter: null })}>Clear</button>
     </span>
   );
