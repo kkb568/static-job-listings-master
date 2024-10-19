@@ -4,24 +4,25 @@ import FilterBar from "./components/FilterBar/FilterBar";
 import JobList from "./components/JobList/JobList";
 import { useReducer } from "react";
 import { filterReducer } from "./utils/filterUtils";
-import { useClientWidth, useMainHeight } from "./utils/hooks";
+import { useMainHeight } from "./utils/hooks";
+import bgImgDesktop from "/images/bg-header-desktop.svg";
+import bgImgMobile from "/images/bg-header-mobile.svg";
 
 function App() {
   const [filters, filterDispatch] = useReducer(filterReducer, []);
-
   const mainHeight = useMainHeight(filters);
-  const clientWidth = useClientWidth();
 
   const mainContentHeight = css`
     height: ${mainHeight};
   `;
 
-  const bgHeader = clientWidth <= 600 ? "bg-header-mobile.svg" : "bg-header-desktop.svg";
-
   return (
     <>
       <header className={header}>
-        <img src={`/images/${bgHeader}`} alt="Background image for the header section" />
+        <picture>
+          <source media="(max-width: 600px)" srcSet={bgImgMobile} />
+          <img src={bgImgDesktop} alt="Background image for the header section" />
+        </picture>
       </header>
       <main className={cx(mainContent, mainContentHeight)}>
         <filterContext.Provider value={{ filters, filterDispatch }}>
@@ -40,8 +41,8 @@ const header = css`
   height: 18vh;
   background-color: ${desaturatedDarkCyan};
 
-  img {
-    width: inherit;
+  picture img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
 
