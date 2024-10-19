@@ -18,7 +18,7 @@ export default function FilterBar() {
   `;
 
   return (
-    <span className={cx(filterBar, filterBarVisible)}>
+    <span className={cx(filterBar, filterBarVisible)} aria-label="Filter bar for showing the filters">
       <span className={filterListStyle}>{filterList}</span>
       <button onClick={() => filterDispatch && filterDispatch({ type: "removeAllFilters", filter: null })}>Clear</button>
     </span>

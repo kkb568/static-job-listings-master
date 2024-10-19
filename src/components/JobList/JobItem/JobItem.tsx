@@ -6,7 +6,7 @@ import JobDetails from "./JobDetails/JobDetails";
 import { useClientWidth } from "../../../utils/hooks";
 
 export default function JobItem({ jobItem }: JobItemProps) {
-  const { featured } = jobItem;
+  const { featured, company, position } = jobItem;
   const clientWidth = useClientWidth();
 
   const cyanLineOpacity = css`
@@ -14,7 +14,7 @@ export default function JobItem({ jobItem }: JobItemProps) {
   `;
 
   return (
-    <div className={jobItemStyle}>
+    <div className={jobItemStyle} aria-label={`${position} job application at ${company}`}>
       <div className={cyanLineOpacity} />
       <div className={jobContent}>
         <jobContext.Provider value={jobItem}>
